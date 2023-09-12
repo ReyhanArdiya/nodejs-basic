@@ -13,5 +13,10 @@
         "titleBar.inactiveBackground": "#46454999",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#464549"
+    "peacock.color": "#464549",
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.formatOnType": false
+    }
 }
