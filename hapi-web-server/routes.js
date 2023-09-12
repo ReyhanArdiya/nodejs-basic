@@ -1,0 +1,55 @@
+const routes = [
+    {
+        method: "GET",
+        path: "/",
+        handler: (request, h) => {
+            return "Homepage";
+        }
+    },
+    {
+        method: "*",
+        path: "/",
+        handler: (request, h) => {
+            return "Halaman tidak dapat diakses dengan method tersebut";
+        }
+    },
+    {
+        method: "GET",
+        path: "/about",
+        handler: (request, h) => {
+            return "About page";
+        }
+    },
+    {
+        method: "GET",
+        path: "/hello/{name?}",
+        handler: (request, h) => {
+            const { name = "stranger" } = request.params;
+            const { lang } = request.query;
+
+            if (lang === "id") {
+                return `Hai, ${name}!`;
+            }
+
+            return `Hello, ${name}!`;
+        }
+    },
+    {
+        method: "*",
+        path: "/about",
+        handler: (request, h) => {
+            return "Halaman tidak dapat diakses dengan method tersebut";
+        }
+    },
+
+    {
+        method: "*",
+        path: "/{any*}",
+        handler: (request, h) => {
+            console.log(request.payload);
+            return h.response("Halaman tidak ditemukan").code(404);
+        }
+    }
+];
+
+module.exports = routes;
